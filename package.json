@@ -1,0 +1,22 @@
+{
+    "name": "devtop",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "electron ./out",
+        "test": "vitest"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^20.4.6",
+        "electron": "^25.4.0",
+        "typescript": "^5.1.6",
+        "vitest": "^0.34.1"
+    },
+    "dependencies": {
+        "fs": "0.0.1-security"
+    }
+}
