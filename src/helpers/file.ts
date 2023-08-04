@@ -41,7 +41,24 @@ export const getDirectoryChildren = (directoryPath: string) => {
     )
 }
 
+export const getFileContent = (filePath: string) => {
+    return fs.readFileSync(filePath).toString()
+}
+
 export const getFileLineCount = (filePath: string) => {
-    const file = fs.readFileSync(filePath).toString()
+    const file = getFileContent(filePath)
     return file.split(/(?:\r\n|\r|\n)/g).length
+}
+
+export const getFilesWithLinesCountOver = (
+    dirPath: string,
+    lineCount: number
+) => {
+    const content = getDirectoryContent(dirPath)
+    const files = content.filter((item) => !item.isDirectory)
+    const biggest = files.filter(
+        (file) => getFileLineCount(file.path) > lineCount
+    )
+    biggest.forEach((file) => console.log(file.path))
+    console.log(`Files with line count over ${lineCount}: ${biggest.length}`)
 }
